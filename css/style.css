@@ -23,6 +23,7 @@ html {
 }
 body {
     display: flex;
+    justify-content: center;
     align-items: flex-start;
     position: relative;
 }
@@ -35,20 +36,27 @@ body {
     --white-color: #fff;
     --hover-light-color: #1d9cf035;
     --hover-color: #1892e4;
+    --light-text-color: #536471;
+    --transparent-color: #53647100;
 }
 
 /* Left-menu */
 .left-menu {
     height: 100vh;
-    width: 25%;
     position: sticky;
     top: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     border-right: 1px solid var(--gray-color);
-    min-width: 80px;
+    width: 80px;
+}
+
+@media screen and (min-width: 1024px) {
+    .left-menu {
+        width: 300px;
+    }
 }
 
 /* Left-menu Twitter Icon */
@@ -147,8 +155,6 @@ body {
     color: var(--white-color);
 }
 
-
-
 @media screen and (min-width: 1024px) {
     .left-menu__tweet-button {
         height: 50px;
@@ -172,25 +178,81 @@ body {
 }
 
 /* Left-menu profile */
+.left-menu__profile {
+    height: 65px;
+    width: 65px;
+    border-radius: 50px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+}
+
+.left-menu__profile:hover {
+    background-color: var(--gray-color);
+}
+
+.left-menu__profile-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.left-menu__profile-text {
+    display: none;
+}
+
+.left-menu__profile-img img {
+    width: 45px;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+}
+
+.left-menu__profile-icon {
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+    .left-menu__profile {
+        height: 65px;
+        width: 250px;
+    }
+
+    .left-menu__profile-text {
+        display: block;
+    }
+
+    .left-menu__profile-text p {
+        margin: -5px 0;
+    }
+
+    .left-menu__profile-text p:last-of-type {
+        color: var(--light-text-color);
+    }
+
+    .left-menu__profile-icon {
+        margin-right: -20px;
+        display: block;
+    }
+}
 
 /* Content */
 .content {
-    width: 45%;
+    width: 600px;
     border: 1px solid red;
 }
 
 /* Right menu */
 .right-menu {
-    height: max-content;
-    width: 30%;
-    border: 1px solid blue;
+    width: 400px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 20px;
     position: sticky;
     top: -2180px;
 }
 
-.right-menu div {
-    padding: 10px;
-}
