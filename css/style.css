@@ -96,7 +96,7 @@ body {
     justify-content: space-between;
     align-items: center;
     border-right: 1px solid var(--gray-color);
-    width: 80px;
+    width: 55px;
     z-index: 2;
 }
 
