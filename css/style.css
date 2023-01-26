@@ -89,12 +89,15 @@ body {
     height: 100vh;
     position: sticky;
     top: 0;
+    left: 0;
+    background-color: var(--white-color);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     border-right: 1px solid var(--gray-color);
     width: 80px;
+    z-index: 2;
 }
 
 @media screen and (min-width: 1024px) {
@@ -288,8 +291,14 @@ body {
 
 /* Content */
 .content {
-    width: 600px;
+    max-width: 80%;
     border-right: 1px solid var(--gray-color);
+}
+
+@media screen and (min-width: 768px) {
+    .content {
+        max-width: 600px;
+    }
 }
 
 /* Content Header */
@@ -354,8 +363,9 @@ body {
     position: relative;
     height: 100px;
     width: 100px;
-    top: 18vw;
+    top: 16vw;
     left: 20px;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
@@ -374,7 +384,6 @@ body {
     top: 0;
     left: 0;
     background-color: var(--transparent-hover-gray-color);
-    z-index: 4;
 }
 
 /* Content following */
@@ -384,12 +393,12 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 10px;
+    gap: 5px;
 }
 
 .content__following-border {
-    height: 35px;
-    width: 35px;
+    height: 25px;
+    width: 25px;
     border: 1px solid var(--border-gray-color);
     border-radius: 50%;
     display: flex;
@@ -398,12 +407,13 @@ body {
 }
 
 .content__following svg {
-    width: 20px;
+    width: 15px;
+    fill: var(--text-color);
 }
 
 .content__following-button {
-    height: 35px;
-    width: 100px;
+    height: 25px;
+    width: 80px;
     border: 1px solid var(--border-gray-color);
     border-radius: 50px;
     display: flex;
@@ -412,9 +422,39 @@ body {
 }
 
 .content__following-button p {
-    font-size: 1em;
-    font-weight: 600;
+    font-size: 0.9em;
+    font-weight: 500;
     color: var(--text-color);
+}
+
+@media screen and (min-width: 768px) {
+    .content__following {
+        height: 60px;
+        padding-right: 20px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .content__following-border {
+        height: 35px;
+        width: 35px;
+    }
+
+    .content__following svg {
+        width: 20px;
+    }
+
+    .content__following-button {
+        height: 35px;
+        width: 100px;
+    }
+
+    .content__following-button p {
+        font-size: 1em;
+        font-weight: 600;
+    }
 }
 
 /* Content profile description */
@@ -426,6 +466,10 @@ body {
 .content__profile-description h1 {
     font-size: 1.2em;
     font-weight: 800;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 200px;
 }
 
 .content__profile-description strong {
@@ -451,6 +495,7 @@ body {
     height: 50px;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .content__profile-description-row-text-1 a {
@@ -460,6 +505,19 @@ body {
 
 .content__profile-description-row-text-1 a:hover {
     text-decoration: underline;
+}
+
+.content__profile-description-row-1-responsive {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+@media screen and (max-width: 470px) {
+    .content__profile-description-row-1-responsive {
+        margin-top: -10px;
+        margin-left: 0;
+    }
 }
 
 .content__profile-description-row-text-2 {
@@ -504,6 +562,10 @@ body {
 
 .content__profile-description-row-3 a {
     color: var(--text-color);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 300px;
 }
 
 .content__profile-description-row-3 a:hover {
@@ -512,9 +574,11 @@ body {
 
 /* Content nav */
 
-.content__nav nav {
+.content__nav {
     display: flex;
     border-bottom: 1px solid var(--gray-color);
+    overflow-x: auto;
+    max-width: 100%;
 }
 
 .content__nav-box {
@@ -526,18 +590,22 @@ body {
 
 .content__nav-box-1 {
     width: 25%;
+    min-width: 80px;
 }
 
 .content__nav-box-2 {
     width: 30%;
+    min-width: 130px;
 }
 
 .content__nav-box-3 {
     width: 20%;
+    min-width: 60px;
 }
 
 .content__nav-box-4 {
     width: 25%;
+    min-width: 60px;
 }
 
 .content__nav-box:hover {
@@ -555,6 +623,127 @@ body {
     border-bottom: 4px solid var(--icon-twitter-color);
     color: var(--black-color) !important;
     font-weight: 500;
+}
+
+/* Content posts */
+.content__post-container {
+    display: flex;
+    padding: 15px 15px 15px 10px;
+    cursor: pointer;
+}
+
+.content__post-container:hover {
+    background-color: var(--hover-gray-color);
+}
+
+/* Content posts img profile */
+.content__post-profile-img {
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.content__post-profile-img img {
+    width: 50px;
+    border-radius: 50%;
+    position: relative;
+}
+
+/* Content posts content */
+.content__post-content {
+    width: calc(100% - 50px);
+}
+
+.content__post-content video {
+        width: 100%;
+    margin-top: 5px;
+    border-radius: 15px;
+}
+
+.content__post-content-title {
+    height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.content__post-content-title h3 {
+    font-weight: 500;
+    font-size: 1.1em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 40%;
+}
+
+.content__post-content-title span {
+    font-size: 1em;
+    position: relative;
+    top: 2px;
+    left: 5px;
+    color: var(--light-text-color);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 40%;
+}
+
+.content__post-content-title svg {
+    width: 20px;
+    margin-top: 2px;
+    margin-left: auto;
+}
+
+.content__posts-description {
+    padding: 5px 0;
+}
+
+.content__posts-description span {
+    color: var(--icon-twitter-color);
+}
+
+.content__post-img {
+    width: 100%;
+    margin-top: 5px;
+    border-radius: 15px;
+}
+
+.content__posts-icons {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.content__posts-icons div {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.content__posts-icons svg {
+    width: 15px;
+}
+
+.content__posts-icons div:hover svg {
+    fill: var(--icon-twitter-color);
+}
+
+.content__posts-icons span {
+    font-size: 0.8em;
+}
+
+@media screen and (min-width: 768px) {
+    .content__posts-icons {
+        gap: 20px;
+    }
+    .content__posts-icons svg {
+        width: 20px;
+    }
+
+    .content__posts-icons span {
+        font-size: 1em;
+    }
 }
 
 /* Right menu */
