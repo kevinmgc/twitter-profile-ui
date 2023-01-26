@@ -183,8 +183,9 @@ body {
 /* Left-menu tweet button */
 .left-menu__tweet-button {
     display: block;
-    width: 50px;
-    height: 50px;
+    margin-left: 4px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background-color: var(--icon-twitter-color);
 }
@@ -198,7 +199,7 @@ body {
 }
 
 .left-menu__tweet-icon {
-    font-size: 1.5em;
+    font-size: 1.3em;
     color: var(--white-color);
 }
 
@@ -254,7 +255,7 @@ body {
 }
 
 .left-menu__profile-img img {
-    width: 45px;
+    width: 40px;
     border-radius: 50%;
     display: block;
     margin: auto;
